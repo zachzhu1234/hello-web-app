@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Simple Hello App</title>
+  <style>
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial; display:flex; align-items:center; justify-content:center; height:100vh; margin:0; background:#f6f8fb; }
+    .card { background:white; padding:24px; border-radius:12px; box-shadow:0 6px 20px rgba(30,30,80,0.08); width:320px; text-align:center; }
+    button { padding:10px 16px; border-radius:8px; border:0; cursor:pointer; font-weight:600; }
+    .primary { background:#2563eb; color:white; }
+    .link { background:transparent; color:#2563eb; border:2px solid #e6eefc; margin-top:12px; }
+    .hidden { display:none; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div id="startView">
+      <h2>Welcome</h2>
+      <p>Click the button to start</p>
+      <button id="startBtn" class="primary">Start</button>
+    </div>
+
+    <div id="helloView" class="hidden">
+      <h2 id="helloText">hello world</h2>
+      <button id="backBtn" class="link">Go back</button>
+    </div>
+  </div>
+
+  <script>
+    const startView = document.getElementById('startView');
+    const helloView = document.getElementById('helloView');
+    const startBtn = document.getElementById('startBtn');
+    const backBtn = document.getElementById('backBtn');
+    const helloText = document.getElementById('helloText');
+
+    startBtn.addEventListener('click', () => {
+      // show hello view
+      startView.classList.add('hidden');
+      helloView.classList.remove('hidden');
+      // set text (keeps simple as requested)
+      helloText.textContent = 'hello world';
+    });
+
+    backBtn.addEventListener('click', () => {
+      // go back to start
+      helloView.classList.add('hidden');
+      startView.classList.remove('hidden');
+    });
+  </script>
+</body>
+</html>
